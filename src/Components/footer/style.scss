@@ -1,0 +1,48 @@
+@import "../../mixins.scss";
+
+.footer{
+    background-color: var(--black3);
+    padding: 20px 0;
+    font-weight:500 !important  ;
+
+    .menu-items{
+        margin: 20px 0;
+        display: flex;
+        list-style: none;
+        justify-content: space-evenly;
+        color: white;
+
+        @include sm{
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .menu-item{
+        //    font-weight: 100 !important;
+           cursor: pointer;
+           &:hover{
+            color: var(--green);
+           }
+
+           @include md{
+            font-size: 12px;
+         
+           }
+        }
+      
+    }
+
+    .greeting{
+        display: flex;
+        margin: 10px 0;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+        line-height: 20px;
+        opacity: .5;
+
+        @include md{
+            font-size: 12px;
+        }
+    }
+}

@@ -1,0 +1,126 @@
+@import  "../../mixins.scss";
+
+.header{
+    height: 60px;
+    position: fixed;
+    transform: translateY(0);
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    transition: all ease 0.5s;
+    z-index: 2;
+
+    &.top{
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+    }
+
+    &.show {
+        background-color: var(--black3);
+    }
+    &.hide {
+        transform: translateY(-60px);
+    }
+
+    .content-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-logo{
+        height: 50px;
+        display: flex;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+
+        p{
+            background: -webkit-linear-gradient(98.37deg,#59c173 0.99%,#5d26c1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+
+    .nav-items{
+        display: flex;
+       
+        color: white;
+        
+        p{
+            margin: 0 15px;
+            cursor: pointer;
+
+            &:hover{
+                color:var(--green) ;
+            }
+        }
+
+        @include md{
+            display: none;
+        }
+    }
+
+    .nav-mobile-items{
+        display: none;
+        svg{
+            font-size: 18px;
+            color: white ;
+        }
+
+        @include md{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            
+           
+        }
+    }
+
+    &.mobile-view{
+        background: var(--black3);
+
+        .nav-items{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background: var(--black3);
+            width: 100%;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: mobileMenu 0.3s ease-in-out forwards;
+            
+            p{
+                font-size: 14px;
+                width: 100%;
+                height:  auto;
+                padding: 15px 20px;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                &:last-child {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}
+
+
+
+@keyframes mobileMenu {
+    0% {
+        transform: translateY(-130%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

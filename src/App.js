@@ -1,15 +1,14 @@
 import Header from "./Components/header/Header";
-import { BrowserRouter as Router, Route, Routes,useLocation } from "react-router-dom";
+import { Route, Routes,useLocation } from "react-router-dom";
 import { useFetchDataQuery } from "./Store/api";
 import { getApiConfiguration, getGenre } from "./Store/slice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Home } from "./Pages/home/Home";
 import Footer from "./Components/footer/Footer";
 import Details from "./Pages/details/Details";
 import { useLayoutEffect } from "react";
 import SearchResults from "./Pages/searchResults/SearchResults";
 import Discover from "./Pages/discover/Discover";
-import Spinner from "./Components/spinner/Spinner";
 import PageNotFound from "./Pages/pageNotFound/PageNotFound";
 
 

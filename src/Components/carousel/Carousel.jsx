@@ -1,7 +1,4 @@
 import React, { useRef } from "react";
-
-import "swiper/css";
-import "swiper/css/pagination";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import { useSelector } from "react-redux";

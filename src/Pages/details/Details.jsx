@@ -12,18 +12,19 @@ import Recommendation from './Recommendation';
 
 
 const Details = () => {
-    const { mediaType, id } = useParams();
-    const { data, isLoading } = useFetchDataQuery(
-        `${mediaType}/${id}/videos`);
-        const { data:creditsData, isLoading:creditsLoading } = useFetchDataQuery(
-            `${mediaType}/${id}/credits`);
+  const { mediaType, id } = useParams();
+  const { data, isLoading } = useFetchDataQuery(
+    `${mediaType}/${id}/videos`);
+  const { data: creditsData, isLoading: creditsLoading } = useFetchDataQuery(
+    `${mediaType}/${id}/credits`);
   return (
     <div>
-        <DetailsBanner video={data?.results[0]} crew={creditsData?.crew}/>
-        <Cast data={creditsData?.cast} isLoading={creditsLoading}/>
-        <VideoSection data={data} isLoading={isLoading}/>
-        <Similiar mediaType={mediaType} id={id}/>
-        <Recommendation mediaType={mediaType} id={id}/>
+      <DetailsBanner video={data?.results[0]} crew={creditsData?.crew} />
+      <Cast data={creditsData?.cast} isLoading={creditsLoading} />
+      {data?.results?.length>0 &&
+        <VideoSection data={data} isLoading={isLoading} />}
+        <Similiar mediaType={mediaType} id={id} />
+      <Recommendation mediaType={mediaType} id={id} />
     </div>
   )
 }

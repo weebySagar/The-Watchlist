@@ -19,7 +19,7 @@ const DetailsBanner = ({ video, crew }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null)
     const { mediaType, id } = useParams();
-    const { data, isLoading, isSuccess } = useFetchDataQuery(
+    const { data, isLoading } = useFetchDataQuery(
         `${mediaType}/${id}`
     );
     const { url } = useSelector((state) => state.home);
@@ -160,7 +160,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             Creator:{" "}
                                         </span>
                                         <span className="text">
-                                            {data.created_by.length?.map((d, i) => (
+                                            {data.created_by.map((d, i) => (
                                                 <span key={i}>
                                                     {d.name}
                                                     {data?.created_by?.length -

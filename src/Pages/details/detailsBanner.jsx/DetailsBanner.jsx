@@ -62,7 +62,7 @@ const DetailsBanner = ({ video, crew }) => {
                             <div className="right">
                                 <div className="title">
                                     {`${data.name || data.title}
-                                  (${dayjs(data.release_date).format("YYYY")})`}
+                                  (${dayjs(data.release_date || data.first_air_date).format("YYYY")})`}
                                 </div>
 
                                 <div className="subtitle">{data.tagline}</div>
@@ -102,15 +102,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         </div>
                                     )}
 
-                                    {data.release_data && (
-                                        <div className="info-item">
-                                            <span className="text bold">
-                                                Release Date:{" "}
-                                            </span>
-
-                                            <span className="text">{data.release_date}</span>
-                                        </div>
-                                    )}
+                                       
 
                                     {data.runtime && (
                                         <div className="info-item">
@@ -119,6 +111,34 @@ const DetailsBanner = ({ video, crew }) => {
                                             </span>
 
                                             <span className="text">{convertMinutesToHours(data.runtime)}</span>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="info">
+                                {data.number_of_seasons && (
+                                        <div className="info-item">
+                                            <span className="text bold">
+                                                No of Season:{" "}
+                                            </span>
+
+                                            <span className="text">{data.number_of_seasons}</span>
+                                        </div>
+                                    )}  
+
+                                    {(data?.release_date || data?.first_air_date) && (
+                                        <div className="info-item">
+                                            <span className="text bold">
+                                              {mediaType ==="movie" ?  "Release Date:" :"Airing:"}
+                                              {/* Release Date: */}
+                                            </span>
+
+                                            <span className="text">
+                                               { data.release_date ? dayjs(data.release_date).format("MMM DD, YYYY"):
+                                                dayjs(data.first_air_date).format("MMM DD, YYYY")
+                                               }
+                                                
+                                                </span>
                                         </div>
                                     )}
                                 </div>

@@ -4,6 +4,27 @@
     min-height: 700px;
     padding-top: 100px;
 
+
+    .pagination{
+        color: white;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        font-weight: normal;
+        margin: 30px 0;
+
+        button{
+            width: 80px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background-color: var(--black-light);
+            padding: 10px;
+            color: white;
+            border-radius: 10px;
+        }
+    }
     .results-not-found{
         font-size: 24px;
         color: var(--black-light);

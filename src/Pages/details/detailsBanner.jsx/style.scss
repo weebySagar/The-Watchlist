@@ -111,8 +111,10 @@
                 .description {
                     line-height: 24px;
 
+                    padding-right: 100px;
                     @include md {
-                        padding-right: 100px;
+                        padding-right: 0;
+
                     }
                 }
             }

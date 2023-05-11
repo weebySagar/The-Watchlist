@@ -18,7 +18,10 @@ const Discover = () => {
     const { data, isLoading, isSuccess,isFetching,refetch } = useFetchDataQuery(`/discover/${mediaType}?page=${page}`)
 
     const nextPage=()=>{
-        setPage((prev)=>prev+1)
+        if(page<data?.total_pages){
+
+            setPage((prev)=>prev+1)
+        }
         
         
     }
@@ -52,6 +55,7 @@ const Discover = () => {
                         <div className='content'>
                             {
                                 data.results.map((item, index) => {
+                                    if (item.media_type === "person") return
                                     return (
                                         <MovieCard key={index} data={item} mediaType={mediaType} />
                                     )
@@ -66,9 +70,8 @@ const Discover = () => {
 
                  <button onClick={previousPage} disabled={page===1}>Previous</button>
                  <span>{page}</span>
-                <button onClick={nextPage}>Next</button>
+                <button onClick={nextPage} disabled={page===data.total_pages}>Next</button>
                 </div>
-                {/* <Pagination defaultCurrent={2} current={page} total={data.total_pages} defaultPageSize={data.results.length}/> */}
             </ContentWrapper>
         </div>
     )

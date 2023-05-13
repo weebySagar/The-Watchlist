@@ -5,11 +5,6 @@ import { useParams } from 'react-router-dom';
 import Spinner from '../../Components/spinner/Spinner';
 import MovieCard from '../../Components/movieCard/MovieCard';
 import "./style.scss";
-// import Pagination from 'rc-pagination';
-
-
-
-
 
 
 const Discover = () => {
@@ -70,7 +65,7 @@ const Discover = () => {
 
                  <button onClick={previousPage} disabled={page===1}>Previous</button>
                  <span>{page}</span>
-                <button onClick={nextPage} disabled={page===data.total_pages}>Next</button>
+                <button onClick={nextPage} disabled={page===data?.total_pages}>Next</button>
                 </div>
             </ContentWrapper>
         </div>

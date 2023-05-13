@@ -6,6 +6,7 @@ import {TfiClose} from "react-icons/tfi"
 import {AiOutlineMenu} from "react-icons/ai"
 import Search from '../searchBar/Search';
 import { useNavigate } from 'react-router-dom';
+import logo from "../../assets/out.png"
 
 
 
@@ -60,8 +61,8 @@ const Header = () => {
 
         
             <div className="nav-logo" onClick={()=>navigate("/")}>
-                {/* <img src="assets/logo.png" alt="" /> */}
-                <p>The Watchlist</p>
+                <img src={logo} alt="logo" />
+                {/* <p>The Watchlist</p> */}
             </div>
             <div className="nav-items">
             <p onClick={()=>navigationHandler("movies")}>Movies</p>

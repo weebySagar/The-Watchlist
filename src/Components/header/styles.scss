@@ -31,18 +31,29 @@
     }
 
     .nav-logo{
-        height: 50px;
-        display: flex;
-        align-items: center;
-        color: white;
+        // height: 50px;
+        // display: flex;
+        // align-items: center;
+        // color: white;
         cursor: pointer;
 
-        p{
-            background: -webkit-linear-gradient(98.37deg,#59c173 0.99%,#5d26c1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-            font-size: 20px;
+        // p{
+        //     background: -webkit-linear-gradient(98.37deg,#59c173 0.99%,#5d26c1 100%);
+        //     -webkit-background-clip: text;
+        //     -webkit-text-fill-color: transparent;
+        //     font-weight: bold;
+        //     font-size: 20px;
+        // }
+        img{
+            height: 30px;
+
+            @include md{
+                height: 26px;
+            }
+
+            @include sm{
+                height: 24px;
+            }
         }
     }
 
